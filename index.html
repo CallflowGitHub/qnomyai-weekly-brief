@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q-nomy AI Weekly Brief</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <img src="qnomyailogo.png" alt="Q·nomy AI Logo" class="logo" />
+        <div class="brand-text">
+          <span class="brand-title">Q-nomy AI</span>
+          <span class="brand-sub">Weekly Brief</span>
+        </div>
+      </div>
+      <div class="header-meta">
+        <span class="edition-badge">Edition</span>
+        <span class="edition-date" id="edition-date"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── HERO BAND ── -->
+  <section class="hero-band">
+    <div class="hero-inner">
+      <div class="hero-text-block">
+        <h1 class="hero-title">Your AI World, Curated Weekly</h1>
+        <p class="hero-lead">Q-nomy AI's curated pulse on the world of Artificial Intelligence — handpicked, no noise.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── NEWS GRID ── -->
+  <main>
+    <div class="section-header">
+      <h2 class="section-title" id="section-title-btn" role="button" tabindex="0" aria-expanded="true" aria-controls="news-grid">This Week's Highlights</h2>
+      <span class="article-count" id="article-count"></span>
+    </div>
+
+    <div class="news-grid" id="news-grid">
+      <!-- Cards injected by news.js -->
+    </div>
+  </main>
+
+  <!-- ── ARCHIVE ── -->
+  <section class="archive-section">
+    <div class="archive-inner">
+      <div class="section-header">
+        <h2 class="section-title archive-toggle" id="archive-toggle-btn" role="button" tabindex="0" aria-expanded="false" aria-controls="archive-list">Previous Editions</h2>
+      </div>
+      <div class="archive-list collapsed" id="archive-list">
+        <!-- Weeks injected by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <img src="qnomyailogo.png" alt="Q·nomy AI" class="footer-logo" />
+      <p class="footer-copy">© <span id="footer-year"></span> Q-nomy AI Weekly Brief. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="news.js"></script>
+  <script src="app.js"></script>
+  <script src="logo-dewhite.js"></script>
+</body>
+</html>
