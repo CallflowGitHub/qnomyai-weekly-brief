@@ -315,6 +315,7 @@ main {
   -webkit-box-orient: vertical;
   overflow: hidden;
   transition: max-height 0.45s ease;
+  cursor: pointer;
 }
 
 .card-desc-wrap.expanded .card-description {
@@ -422,7 +423,7 @@ main {
 .archive-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 28px 56px;
+  padding: 20px 28px 24px;
 }
 
 .archive-list {
@@ -524,7 +525,7 @@ main {
 footer {
   background: var(--bg-header);
   border-top: 1px solid var(--border);
-  padding: 28px;
+  padding: 14px 28px;
 }
 
 .footer-inner {

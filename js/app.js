@@ -67,8 +67,9 @@
     const btn    = card.querySelector('.card-expand-btn');
     const label  = card.querySelector('.expand-label');
     const icon   = card.querySelector('.expand-icon');
+    const desc   = card.querySelector('.card-description');
 
-    btn.addEventListener('click', function () {
+    function toggleExpand() {
       const expanded = btn.getAttribute('aria-expanded') === 'true';
       if (expanded) {
         wrap.classList.remove('expanded');
@@ -85,7 +86,10 @@
         icon.innerHTML = '&#8722;';
         card.classList.add('card-open');
       }
-    });
+    }
+
+    btn.addEventListener('click', toggleExpand);
+    desc.addEventListener('click', toggleExpand);
 
     return card;
   }
