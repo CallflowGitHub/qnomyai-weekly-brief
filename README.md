@@ -1,6 +1,6 @@
-# Q-nomy AI Weekly Brief
+# Q-nomy AI Portal
 
-A curated, weekly AI news digest — delivered as a fast, dependency-free static web app.
+The central hub for all Q-nomy AI content — a fast, dependency-free static web portal.
 
 ![Static Site](https://img.shields.io/badge/static-site-brightgreen) ![No Dependencies](https://img.shields.io/badge/dependencies-0-blue) ![Vanilla JS](https://img.shields.io/badge/vanilla-JS-yellow)
 
@@ -8,51 +8,55 @@ A curated, weekly AI news digest — delivered as a fast, dependency-free static
 
 ## Overview
 
-Q-nomy AI Weekly Brief is a handcrafted news aggregation page that presents AI industry highlights — breakthroughs, research, and regulatory updates — in a clean, dark-themed card layout. It requires no backend, no build step, and has zero external dependencies.
+Q-nomy AI Portal is a multi-section, single-page application serving as the home for everything Q-nomy AI. It includes a curated weekly AI news brief, an AI projects showcase, a skills repository, and a model comparison tool — all in a clean, dark-themed layout with bilingual (EN/HE) support. No backend, no build step, zero external dependencies.
 
 ---
 
 ## Features
 
-- Collapsible news cards with smooth animations
-- Categorized article badges (color-coded by category)
-- Expandable archive of past weekly editions
+- **Tab-based navigation** across four portal sections
+- **Weekly Brief** — collapsible news cards with category filter, bilingual (EN/HE) support, and archive of past editions
+- **AI Projects** — showcase of Q-nomy AI initiatives *(coming soon)*
+- **Skills Repo** — reusable AI skills catalog *(coming soon)*
+- **Model Comparison** — side-by-side LLM comparison tool *(coming soon)*
 - Dark theme with CSS variable-based theming
-- Fully accessible (ARIA roles, keyboard navigation)
-- Canvas-based logo processing for dark background compatibility
+- Fully accessible (ARIA roles, keyboard navigation, tab panel pattern)
+- Bilingual display: English and Hebrew via `data-en` / `data-he` attributes
 
 ---
 
 ## Project Structure
 
 ```
-├── index.html          # Page structure and script loading
+├── index.html          # Page structure, tab panels, and script loading
 ├── js/
-│   ├── news.js         # ← Edit this to add/update articles
-│   ├── app.js          # DOM rendering and interaction logic
-│   └── logo-dewhite.js # Runtime logo transparency utility
+│   ├── news.js         # ← Edit this to add/update articles and archive weeks
+│   └── app.js          # DOM rendering, tab switching, language toggle, interaction logic
 ├── css/
 │   └── styles.css      # All theming (CSS variables, grid, animations)
 └── assets/
-    └── qnomyailogo_transparent.png
+    ├── qnomyailogo_transparent.png
+    └── qnomyai_comingsoon.png
 ```
 
 ---
 
 ## Adding News This Week
 
-Edit `js/news.js` and add an object to the `NEWS_ITEMS` array:
+Edit `js/news.js` and add an object to the `NEWS_ITEMS` array. Fields support bilingual strings:
 
 ```js
 {
-  title: "Article Title",
-  description: "One or two sentence summary.",
-  category: "Research",        // any string — drives badge color
+  title:       { en: "Article Title",   he: "כותרת המאמר" },
+  description: { en: "One or two sentence summary.", he: "תיאור קצר." },
+  category:    { en: "Research",         he: "מחקר" },   // any string — drives badge color
   date: "Apr 28, 2026",
   source: "Source Name",
   url: "https://example.com"   // optional
 }
 ```
+
+Plain strings are also accepted (no bilingual support needed).
 
 ## Archiving the Current Week
 
@@ -70,8 +74,6 @@ Then clear `NEWS_ITEMS` and start fresh.
 ---
 
 ## Running Locally
-
-A local HTTP server is required (canvas pixel processing in `logo-dewhite.js` is blocked by `file://` CORS restrictions):
 
 ```bash
 # Python 3
