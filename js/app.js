@@ -1,6 +1,36 @@
 // ── APP LOGIC ──
 
 (function () {
+  // ── TAB SWITCHING ──
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-panel');
+
+  function activateTab(selectedTab) {
+    tabs.forEach(function (tab) {
+      const isSelected = tab === selectedTab;
+      tab.setAttribute('aria-selected', String(isSelected));
+      tab.setAttribute('tabindex', isSelected ? '0' : '-1');
+      tab.classList.toggle('tab-btn--active', isSelected);
+    });
+    panels.forEach(function (panel) {
+      panel.classList.toggle('tab-panel--hidden', panel.id !== selectedTab.getAttribute('aria-controls'));
+    });
+  }
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () { activateTab(tab); });
+    tab.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const dir = e.key === 'ArrowRight' ? 1 : -1;
+        const tabArr = Array.from(tabs);
+        const next = tabArr[(tabArr.indexOf(tab) + dir + tabArr.length) % tabArr.length];
+        activateTab(next);
+        next.focus();
+      }
+    });
+  });
+
   // Set edition date in header
   const now = new Date();
   const opts = { year: 'numeric', month: 'long', day: 'numeric' };

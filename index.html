@@ -25,39 +25,92 @@
     </div>
   </header>
 
-  <!-- ── HERO BAND ── -->
-  <section class="hero-band">
-    <div class="hero-inner">
-      <div class="hero-text-block">
-        <h1 class="hero-title">Your AI World, Curated Weekly</h1>
-        <p class="hero-lead">Q-nomy AI's curated pulse on the world of Artificial Intelligence — handpicked, no noise.</p>
+  <!-- ── TAB NAV ── -->
+  <nav class="tab-nav" role="tablist" aria-label="Site sections">
+    <div class="tab-nav-inner">
+      <button class="tab-btn tab-btn--active" role="tab" id="tab-brief" aria-selected="true" aria-controls="panel-brief" tabindex="0">Weekly Brief</button>
+      <button class="tab-btn" role="tab" id="tab-projects" aria-selected="false" aria-controls="panel-projects" tabindex="-1">AI Projects</button>
+    </div>
+  </nav>
+
+  <!-- ── PANEL: WEEKLY BRIEF ── -->
+  <div class="tab-panel" id="panel-brief" role="tabpanel" aria-labelledby="tab-brief">
+
+    <!-- ── HERO BAND ── -->
+    <section class="hero-band">
+      <div class="hero-inner">
+        <div class="hero-text-block">
+          <h1 class="hero-title">Your AI World, Curated Weekly</h1>
+          <p class="hero-lead">Q-nomy AI's curated pulse on the world of Artificial Intelligence — handpicked, no noise.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── NEWS GRID ── -->
-  <main>
-    <div class="section-header">
-      <h2 class="section-title" id="section-title-btn" role="button" tabindex="0" aria-expanded="true" aria-controls="news-grid">This Week's Highlights</h2>
-      <span class="article-count" id="article-count"></span>
-    </div>
-
-    <div class="news-grid" id="news-grid">
-      <!-- Cards injected by news.js -->
-    </div>
-  </main>
-
-  <!-- ── ARCHIVE ── -->
-  <section class="archive-section">
-    <div class="archive-inner">
+    <!-- ── NEWS GRID ── -->
+    <main>
       <div class="section-header">
-        <h2 class="section-title archive-toggle" id="archive-toggle-btn" role="button" tabindex="0" aria-expanded="false" aria-controls="archive-list">Previous Editions</h2>
+        <h2 class="section-title" id="section-title-btn" role="button" tabindex="0" aria-expanded="true" aria-controls="news-grid">This Week's Highlights</h2>
+        <span class="article-count" id="article-count"></span>
       </div>
-      <div class="archive-list collapsed" id="archive-list">
-        <!-- Weeks injected by app.js -->
+
+      <div class="news-grid" id="news-grid">
+        <!-- Cards injected by news.js -->
       </div>
-    </div>
-  </section>
+    </main>
+
+    <!-- ── ARCHIVE ── -->
+    <section class="archive-section">
+      <div class="archive-inner">
+        <div class="section-header">
+          <h2 class="section-title archive-toggle" id="archive-toggle-btn" role="button" tabindex="0" aria-expanded="false" aria-controls="archive-list">Previous Editions</h2>
+        </div>
+        <div class="archive-list collapsed" id="archive-list">
+          <!-- Weeks injected by app.js -->
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /panel-brief -->
+
+  <!-- ── PANEL: AI PROJECTS ── -->
+  <div class="tab-panel tab-panel--hidden" id="panel-projects" role="tabpanel" aria-labelledby="tab-projects">
+
+    <section class="hero-band">
+      <div class="hero-inner">
+        <div class="hero-text-block">
+          <h1 class="hero-title">AI Projects</h1>
+          <p class="hero-lead">Q-nomy AI internal tools and intelligent agents — built to automate, assist, and accelerate.</p>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <div class="section-header">
+        <h2 class="section-title" style="cursor:default;">Our Projects</h2>
+        <span class="article-count">2 projects</span>
+      </div>
+      <div class="projects-grid">
+
+        <article class="project-card">
+          <div class="card-top">
+            <span class="card-category">Agent</span>
+          </div>
+          <h3 class="project-card-title">DBA Agent</h3>
+          <p class="project-card-desc">An AI-powered database administration agent that assists DBAs with query optimization, anomaly detection, schema analysis, and automated maintenance recommendations — reducing manual toil and accelerating incident response.</p>
+        </article>
+
+        <article class="project-card">
+          <div class="card-top">
+            <span class="card-category">Generator</span>
+          </div>
+          <h3 class="project-card-title">QApp Generator</h3>
+          <p class="project-card-desc">An intelligent application generator that transforms natural-language requirements into fully scaffolded Q-nomy application definitions — accelerating project kickoff and ensuring consistency with platform standards.</p>
+        </article>
+
+      </div>
+    </main>
+
+  </div><!-- /panel-projects -->
 
   <!-- ── FOOTER ── -->
   <footer>
