@@ -10,7 +10,7 @@ const ARCHIVE_WEEKS = [
     week: { en: "Week of Apr 21, 2026", he: "שבוע 21 באפריל 2026" },
     items: [
       {
-        title: { en: "Model", he: "מודל" },
+        title: { en: "Model", he: "Model" },
         description: {
           en: "The \"brain\" responsible for generating responses to incoming user prompts. It is based on LLMs or SLMs — trained language models. There is significant variation between models in terms of performance, speed, token consumption, and capabilities. It is important to note that there is no inherently \"better\" model — only a model that is more suitable for a given use case and cost considerations.",
           he: "ה\"מוח\" האחראי על יצירת תגובות לפרומפטים הנכנסים. הוא מבוסס על LLMs או SLMs — מודלי שפה מאומנים. קיים פער משמעותי בין מודלים שונים מבחינת ביצועים, מהירות, צריכת טוקנים ויכולות. חשוב לציין שאין מודל \"טוב יותר\" באופן מוחלט — יש רק מודל שמתאים יותר לצורך הספציפי ולשיקולי העלות."
@@ -20,7 +20,7 @@ const ARCHIVE_WEEKS = [
         source: "Q-nomy AI"
       },
       {
-        title: { en: "Agents", he: "סוכנים" },
+        title: { en: "Agents", he: "Agents" },
         description: {
           en: "An agent is a software layer that acts as a mediator between the user prompt and the model. While the model is responsible for analyzing the input and generating the response, the agent determines what additional context or information — beyond the user prompt — is sent to the model. It is responsible for actively searching for relevant skills, loading the appropriate tools, and passing them to the model. On certain platforms such as Claude Code and Cursor, it also has the ability to delegate actions for execution to sub-agents.",
           he: "סוכן הוא שכבת תוכנה המתפקדת כמתווך בין פרומפט המשתמש לבין המודל. בעוד שהמודל אחראי על ניתוח הקלט ויצירת התגובה, הסוכן קובע איזה הקשר ומידע נוסף — מעבר לפרומפט — יישלח למודל. הסוכן אחראי על חיפוש מיומנויות רלוונטיות, טעינת הכלים המתאימים והעברתם למודל. בפלטפורמות כגון Claude Code ו-Cursor, יש לו גם יכולת להאציל פעולות לסוכני-משנה."
@@ -30,7 +30,7 @@ const ARCHIVE_WEEKS = [
         source: "Q-nomy AI"
       },
       {
-        title: { en: "Tools", he: "כלים" },
+        title: { en: "Tools", he: "Tools" },
         description: {
           en: "In practice, the \"hands\" of the agent. Through tools — which are essentially standard functions — the agent can perform actions such as calling APIs or interacting with databases. These are typically used to execute external operations. Each tool includes a description, which the model reads and uses to decide whether to invoke it, based on the incoming user prompt.",
           he: "ה\"ידיים\" של הסוכן. באמצעות כלים — שהם למעשה פונקציות רגילות — הסוכן יכול לבצע פעולות כגון קריאה ל-APIs או אינטראקציה עם בסיסי נתונים. כל כלי כולל תיאור שהמודל קורא ומשתמש בו כדי להחליט אם להפעיל אותו בהתאם לפרומפט הנכנס."
@@ -50,7 +50,7 @@ const ARCHIVE_WEEKS = [
         source: "Q-nomy AI"
       },
       {
-        title: { en: "Skills", he: "מיומנויות" },
+        title: { en: "Skills", he: "Skills" },
         description: {
           en: "An open-source protocol developed by Anthropic and adopted by the industry. In practice, it is a folder consisting of a Markdown file (typically called skill.md) along with code scripts and other components. Unlike tools, these components usually run locally within the working environment. Additionally, skills are not fully loaded into the model — only their descriptions are initially provided, which helps reduce token usage. Only if the model determines that a skill is relevant will it load the remaining components.",
           he: "פרוטוקול קוד פתוח שפותח על ידי Anthropic ואומץ בתעשייה. בפועל, זוהי תיקייה המורכבת מקובץ Markdown (בדרך כלל skill.md) יחד עם סקריפטים ורכיבים נוספים. בשונה מכלים, רכיבים אלה פועלים מקומית. המיומנויות אינן נטענות במלואן לתוך המודל — רק התיאורים שלהן מסופקים תחילה. רק אם המודל יקבע שמיומנות רלוונטית יטעון את הרכיבים הנותרים."
@@ -60,7 +60,7 @@ const ARCHIVE_WEEKS = [
         source: "Q-nomy AI"
       },
       {
-        title: { en: "System Prompts", he: "הוראות מערכת" },
+        title: { en: "System Prompts", he: "System Prompts" },
         description: {
           en: "The \"settings\" that define how the agent should behave and operate. In different platforms they are referred to by various names: System Prompt (Claude API), Custom Instructions (Claude.ai), Custom Instructions (GitHub Copilot), and Rules (Cursor). 💡 Tip: use AI to write your system prompts.",
           he: "ה\"הגדרות\" שמגדירות כיצד הסוכן אמור להתנהג ולפעול. בפלטפורמות שונות הן מכונות בשמות שונים: System Prompt (Claude API), Custom Instructions (Claude.ai), Custom Instructions (GitHub Copilot), ו-Rules (Cursor). 💡 טיפ: השתמשו ב-AI לכתיבת הוראות המערכת שלכם."
@@ -70,7 +70,7 @@ const ARCHIVE_WEEKS = [
         source: "Q-nomy AI"
       },
       {
-        title: { en: "RAG — Retrieval-Augmented Generation", he: "RAG — יצירה מועשרת על ידי אחזור" },
+        title: { en: "RAG — Retrieval-Augmented Generation", he: "RAG — Retrieval-Augmented Generation" },
         description: {
           en: "This refers to the ability to incorporate documents and various file types into the model's context. RAG is the technique the agent uses to retrieve these components, based on needs determined by the model in response to the user prompt. Each file is broken down into smaller chunks, and each chunk has a summarized representation — based on this, the model decides whether to load the full chunk or not (Semantic Search). There are many advanced techniques for chunking and for deciding which chunks should be retrieved and used.",
           he: "היכולת לשלב מסמכים וסוגי קבצים שונים בהקשר של המודל. RAG היא הטכניקה שהסוכן משתמש בה לאחזור רכיבים אלה בהתאם לצרכים שנקבעו על ידי המודל. כל קובץ מחולק לחתיכות קטנות, ולכל חתיכה יש ייצוג מסוכם — על בסיסו המודל מחליט אם לטעון את החתיכה המלאה (חיפוש סמנטי). קיימות טכניקות מתקדמות רבות לחלוקה ולהחלטה אילו חתיכות לאחזר."
@@ -80,7 +80,7 @@ const ARCHIVE_WEEKS = [
         source: "Q-nomy AI"
       },
       {
-        title: { en: "Context", he: "הקשר" },
+        title: { en: "Context", he: "Context" },
         description: {
           en: "Everything that is loaded into the model and used when generating a response. This includes all of the above components — model instructions, agent configuration, tools, skills, RAG results — as well as additional elements depending on the need or those introduced dynamically at runtime. Context Engineering is the \"art\" of keeping the context as small as possible (minimum token usage) while still getting the best results.",
           he: "כל מה שנטען למודל ומשמש ביצירת תגובה. זה כולל את כל הרכיבים הנ\"ל — הוראות מודל, תצורת סוכן, כלים, מיומנויות, תוצאות RAG — וכן אלמנטים נוספים בהתאם לצורך. Context Engineering היא \"האמנות\" של שמירת ההקשר כמינימלי ככל האפשר (שימוש מינימלי בטוקנים) תוך קבלת התוצאות הטובות ביותר."
