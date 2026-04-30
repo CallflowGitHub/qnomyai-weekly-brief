@@ -650,6 +650,22 @@ footer {
   color: var(--gray-500);
 }
 
+/* ── COMING SOON PANELS ── */
+.comingsoon-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 28px;
+}
+
+.comingsoon-img {
+  max-width: 100%;
+  max-height: calc(100vh - 320px);
+  width: auto;
+  height: auto;
+  border-radius: var(--radius-card);
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 640px) {
   .header-inner { padding: 12px 16px; }
