@@ -181,8 +181,9 @@
       const btn = document.createElement('button');
       btn.className = 'filter-pill' + (isAll ? ' filter-pill--active' : '');
       btn.type = 'button';
+      btn.setAttribute('dir', 'auto');
       const enText = isAll ? 'All (' + items.length + ')' : enLabel + ' (' + counts[enLabel] + ')';
-      const heText = isAll ? '\u05D4\u05DB\u05DC (' + items.length + ')' : (catMap[enLabel] || enLabel) + ' (' + counts[enLabel] + ')';
+      const heText = isAll ? '\u05D4\u05DB\u05DC (\u200F' + items.length + ')' : (catMap[enLabel] || enLabel) + ' (\u200F' + counts[enLabel] + ')';
       btn.dataset.en = enText;
       btn.dataset.he = heText;
       btn.textContent = currentLang === 'he' ? heText : enText;

@@ -224,7 +224,18 @@ header {
   display: flex;
   align-items: center;
   gap: 22px;
-  justify-content: space-between;
+}
+
+#panel-brief[dir="rtl"] .hero-inner {
+  flex-direction: row-reverse;
+}
+
+#panel-brief[dir="rtl"] .hero-text-block {
+  text-align: right;
+}
+
+#panel-brief[dir="ltr"] .hero-text-block {
+  text-align: left;
 }
 
 .hero-inner::before {
@@ -526,6 +537,7 @@ main.grid-collapsed {
   display: flex;
   gap: 6px;
   flex-shrink: 0;
+  margin-bottom: 12px;
 }
 
 .lang-btn {
@@ -713,6 +725,10 @@ main.grid-collapsed {
   padding: 4px 14px;
   text-transform: uppercase;
   transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+#panel-brief[dir="rtl"] .filter-bar {
+  direction: rtl;
 }
 
 .filter-pill:hover {

@@ -31,6 +31,7 @@
       <button class="tab-btn tab-btn--active" role="tab" id="tab-brief" aria-selected="true" aria-controls="panel-brief" tabindex="0">Weekly Brief</button>
       <button class="tab-btn" role="tab" id="tab-projects" aria-selected="false" aria-controls="panel-projects" tabindex="-1">AI Projects</button>
       <button class="tab-btn" role="tab" id="tab-skills" aria-selected="false" aria-controls="panel-skills" tabindex="-1">Skills Repo</button>
+      <button class="tab-btn" role="tab" id="tab-compare" aria-selected="false" aria-controls="panel-compare" tabindex="-1">Model Comparison</button>
     </div>
   </nav>
 
@@ -44,15 +45,15 @@
           <h1 class="hero-title">Your AI World, Curated Weekly</h1>
           <p class="hero-lead">Q-nomy AI's curated pulse on the world of Artificial Intelligence — handpicked, no noise.</p>
         </div>
-        <div class="lang-toggle">
-          <button class="lang-btn lang-btn--active" type="button" data-lang="en">EN</button>
-          <button class="lang-btn" type="button" data-lang="he">עב</button>
-        </div>
       </div>
     </section>
 
     <!-- ── NEWS GRID ── -->
     <main>
+      <div class="lang-toggle">
+        <button class="lang-btn lang-btn--active" type="button" data-lang="en">EN</button>
+        <button class="lang-btn" type="button" data-lang="he">עב</button>
+      </div>
       <div class="section-header">
         <h2 class="section-title" id="section-title-btn" role="button" tabindex="0" aria-expanded="true" aria-controls="news-grid">This Week's Highlights</h2>
         <span class="article-count" id="article-count"></span>
@@ -90,6 +91,13 @@
       <img src="assets/qnomyai_comingsoon.png" alt="Skills Repo — Coming Soon" class="comingsoon-img" />
     </div>
   </div><!-- /panel-skills -->
+
+  <!-- ── PANEL: MODEL COMPARISON ── -->
+  <div class="tab-panel tab-panel--hidden" id="panel-compare" role="tabpanel" aria-labelledby="tab-compare">
+    <div class="comingsoon-wrap">
+      <img src="assets/qnomyai_comingsoon.png" alt="Model Comparison — Coming Soon" class="comingsoon-img" />
+    </div>
+  </div><!-- /panel-compare -->
 
   <!-- ── FOOTER ── -->
   <footer>
