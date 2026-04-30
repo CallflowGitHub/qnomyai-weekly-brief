@@ -4,6 +4,7 @@
   // ── TAB SWITCHING ──
   const tabs = document.querySelectorAll('.tab-btn');
   const panels = document.querySelectorAll('.tab-panel');
+  let currentLang = 'en';
 
   function activateTab(selectedTab) {
     tabs.forEach(function (tab) {
@@ -48,10 +49,16 @@
   const titleBtn = document.getElementById('section-title-btn');
   const grid = document.getElementById('news-grid');
 
+  let mainFilterBar = null;
+
+  const mainEl = document.querySelector('main');
+
   function toggleGrid() {
     const expanded = titleBtn.getAttribute('aria-expanded') === 'true';
     titleBtn.setAttribute('aria-expanded', String(!expanded));
     grid.classList.toggle('collapsed', expanded);
+    if (mainFilterBar) mainFilterBar.classList.toggle('collapsed', expanded);
+    mainEl.classList.toggle('grid-collapsed', expanded);
   }
 
   titleBtn.addEventListener('click', toggleGrid);
@@ -64,9 +71,25 @@
     grid.appendChild(buildCard(item));
   });
 
+  mainFilterBar = buildFilterBar(NEWS_ITEMS, grid);
+  if (mainFilterBar) grid.parentNode.insertBefore(mainFilterBar, grid);
+
   function buildCard(item) {
+    const enTitle = typeof item.title === 'object' ? item.title.en : item.title;
+    const heTitle = typeof item.title === 'object' ? item.title.he : item.title;
+    const enDesc  = typeof item.description === 'object' ? item.description.en : item.description;
+    const heDesc  = typeof item.description === 'object' ? item.description.he : item.description;
+    const enCat   = typeof item.category === 'object' ? item.category.en : item.category;
+    const heCat   = typeof item.category === 'object' ? item.category.he : item.category;
+
     const card = document.createElement('article');
     card.className = 'card';
+    card.dataset.category = enCat;
+
+    const dTitle = currentLang === 'he' ? heTitle : enTitle;
+    const dDesc  = currentLang === 'he' ? heDesc  : enDesc;
+    const dCat   = currentLang === 'he' ? heCat   : enCat;
+    const dMore  = currentLang === 'he' ? '\u05E7\u05E8\u05D0 \u05E2\u05D5\u05D3' : 'Read more';
 
     const linkHtml = item.url
       ? `<a class="card-link" href="${escHtml(item.url)}" target="_blank" rel="noopener noreferrer">Read more</a>`
@@ -74,16 +97,16 @@
 
     card.innerHTML = `
       <div class="card-top">
-        <span class="card-category">${escHtml(item.category)}</span>
+        <span class="card-category">${escHtml(dCat)}</span>
         <span class="card-date">${escHtml(item.date)}</span>
       </div>
-      <h3 class="card-title">${escHtml(item.title)}</h3>
+      <h3 class="card-title">${escHtml(dTitle)}</h3>
       <div class="card-desc-wrap">
-        <p class="card-description">${escHtml(item.description)}</p>
+        <p class="card-description">${escHtml(dDesc)}</p>
         <div class="card-desc-fade"></div>
       </div>
       <button class="card-expand-btn" aria-expanded="false" type="button">
-        <span class="expand-label">Read more</span>
+        <span class="expand-label">${escHtml(dMore)}</span>
         <span class="expand-icon">&#43;</span>
       </button>
       <div class="card-footer">
@@ -91,6 +114,19 @@
         ${linkHtml}
       </div>
     `;
+
+    // Set translation data attributes for language switching
+    const catEl = card.querySelector('.card-category');
+    catEl.dataset.en = enCat;
+    catEl.dataset.he = heCat;
+
+    const titleEl = card.querySelector('.card-title');
+    titleEl.dataset.en = enTitle;
+    titleEl.dataset.he = heTitle;
+
+    const descEl = card.querySelector('.card-description');
+    descEl.dataset.en = enDesc;
+    descEl.dataset.he = heDesc;
 
     const wrap   = card.querySelector('.card-desc-wrap');
     const fade   = card.querySelector('.card-desc-fade');
@@ -105,14 +141,14 @@
         wrap.classList.remove('expanded');
         fade.style.display = '';
         btn.setAttribute('aria-expanded', 'false');
-        label.textContent = 'Read more';
+        label.textContent = currentLang === 'he' ? '\u05E7\u05E8\u05D0 \u05E2\u05D5\u05D3' : 'Read more';
         icon.innerHTML = '&#43;';
         card.classList.remove('card-open');
       } else {
         wrap.classList.add('expanded');
         fade.style.display = 'none';
         btn.setAttribute('aria-expanded', 'true');
-        label.textContent = 'Show less';
+        label.textContent = currentLang === 'he' ? '\u05D4\u05E6\u05D2 \u05E4\u05D7\u05D5\u05EA' : 'Show less';
         icon.innerHTML = '&#8722;';
         card.classList.add('card-open');
       }
@@ -122,6 +158,49 @@
     desc.addEventListener('click', toggleExpand);
 
     return card;
+  }
+
+  function buildFilterBar(items, grid) {
+    const catMap = {}; // en -> he
+    const counts = {};
+    items.forEach(function (i) {
+      const en = typeof i.category === 'object' ? i.category.en : i.category;
+      const he = typeof i.category === 'object' ? i.category.he : i.category;
+      catMap[en] = he;
+      counts[en] = (counts[en] || 0) + 1;
+    });
+    const enCats = [...new Set(items.map(function (i) {
+      return typeof i.category === 'object' ? i.category.en : i.category;
+    }))];
+    if (enCats.length < 2) return null;
+
+    const bar = document.createElement('div');
+    bar.className = 'filter-bar';
+
+    function makePill(enLabel, isAll) {
+      const btn = document.createElement('button');
+      btn.className = 'filter-pill' + (isAll ? ' filter-pill--active' : '');
+      btn.type = 'button';
+      const enText = isAll ? 'All (' + items.length + ')' : enLabel + ' (' + counts[enLabel] + ')';
+      const heText = isAll ? '\u05D4\u05DB\u05DC (' + items.length + ')' : (catMap[enLabel] || enLabel) + ' (' + counts[enLabel] + ')';
+      btn.dataset.en = enText;
+      btn.dataset.he = heText;
+      btn.textContent = currentLang === 'he' ? heText : enText;
+      btn.addEventListener('click', function () {
+        bar.querySelectorAll('.filter-pill').forEach(function (p) {
+          p.classList.remove('filter-pill--active');
+        });
+        btn.classList.add('filter-pill--active');
+        grid.querySelectorAll('.card').forEach(function (card) {
+          card.style.display = (isAll || card.dataset.category === enLabel) ? '' : 'none';
+        });
+      });
+      return btn;
+    }
+
+    bar.appendChild(makePill(null, true));
+    enCats.forEach(function (cat) { bar.appendChild(makePill(cat, false)); });
+    return bar;
   }
 
   // ── ARCHIVE ──
@@ -151,20 +230,28 @@
     header.setAttribute('tabindex', '0');
     header.setAttribute('aria-expanded', 'false');
     header.setAttribute('aria-controls', weekId);
-    header.innerHTML = `<span class="archive-week-label">${escHtml(week.week)}</span><span class="archive-week-chevron">▼</span>`;
+    const itemCount = week.items.length;
+    header.innerHTML = `<span class="archive-week-meta"><span class="archive-week-label">${escHtml(week.week)}</span><span class="article-count">${itemCount} article${itemCount !== 1 ? 's' : ''}</span></span><span class="archive-week-chevron">▼</span>`;
 
     const cardsGrid = document.createElement('div');
-    cardsGrid.className = 'archive-week-cards collapsed';
+    cardsGrid.className = 'archive-week-cards';
     cardsGrid.id = weekId;
 
     week.items.forEach(function (item) {
       cardsGrid.appendChild(buildCard(item));
     });
 
+    const weekBody = document.createElement('div');
+    weekBody.className = 'archive-week-body collapsed';
+
+    const weekFilterBar = buildFilterBar(week.items, cardsGrid);
+    if (weekFilterBar) weekBody.appendChild(weekFilterBar);
+    weekBody.appendChild(cardsGrid);
+
     function toggleWeek() {
       const exp = header.getAttribute('aria-expanded') === 'true';
       header.setAttribute('aria-expanded', String(!exp));
-      cardsGrid.classList.toggle('collapsed', exp);
+      weekBody.classList.toggle('collapsed', exp);
     }
 
     header.addEventListener('click', toggleWeek);
@@ -173,8 +260,34 @@
     });
 
     weekEl.appendChild(header);
-    weekEl.appendChild(cardsGrid);
+    weekEl.appendChild(weekBody);
     archiveList.appendChild(weekEl);
+  });
+
+  // ── LANGUAGE SWITCHING ──
+  function setLanguage(lang) {
+    currentLang = lang;
+    // Update all translatable text nodes (titles, descriptions, category badges, filter pills)
+    document.querySelectorAll('#panel-brief [data-en]').forEach(function (el) {
+      el.textContent = (el.dataset[lang] !== undefined ? el.dataset[lang] : el.dataset.en);
+    });
+    // Update expand button labels, respecting each card's expanded state
+    document.querySelectorAll('#panel-brief .card-expand-btn').forEach(function (btn) {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.querySelector('.expand-label').textContent = isExpanded
+        ? (lang === 'he' ? '\u05D4\u05E6\u05D2 \u05E4\u05D7\u05D5\u05EA' : 'Show less')
+        : (lang === 'he' ? '\u05E7\u05E8\u05D0 \u05E2\u05D5\u05D3' : 'Read more');
+    });
+    // RTL direction
+    document.getElementById('panel-brief').setAttribute('dir', lang === 'he' ? 'rtl' : 'ltr');
+    // Active button highlight
+    document.querySelectorAll('.lang-btn').forEach(function (b) {
+      b.classList.toggle('lang-btn--active', b.dataset.lang === lang);
+    });
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () { setLanguage(btn.dataset.lang); });
   });
 
   function escHtml(str) {

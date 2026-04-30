@@ -75,7 +75,6 @@ header {
   font-weight: 800;
   color: var(--orange);
   letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
 .brand-sub {
@@ -225,6 +224,7 @@ header {
   display: flex;
   align-items: center;
   gap: 22px;
+  justify-content: space-between;
 }
 
 .hero-inner::before {
@@ -268,6 +268,11 @@ main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 48px 28px 64px;
+  transition: padding 0.3s ease;
+}
+
+main.grid-collapsed {
+  padding-bottom: 16px;
 }
 
 .section-header {
@@ -516,7 +521,50 @@ main {
 
 .card-link::after { content: ' →'; }
 
-/* ── ARCHIVE SECTION ── */
+/* ── LANGUAGE TOGGLE ── */
+.lang-toggle {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.lang-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--gray-500);
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 5px 14px;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.lang-btn:hover {
+  color: var(--gray-100);
+  border-color: var(--gray-500);
+}
+
+.lang-btn--active {
+  color: var(--orange);
+  border-color: var(--orange);
+  background: var(--orange-glow);
+}
+
+/* ── RTL SUPPORT ── */
+#panel-brief[dir="rtl"] .card-source::before {
+  order: 2;
+}
+
+#panel-brief[dir="rtl"] .section-title::before {
+  order: 2;
+}
+
+#panel-brief[dir="rtl"] .archive-week-label::before {
+  order: 2;
+}
 .archive-section {
   border-top: 1px solid var(--border);
   background: #0a0a0a;
@@ -578,6 +626,12 @@ main {
   gap: 8px;
 }
 
+.archive-week-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
 .archive-week-label::before {
   content: '📅';
   font-size: 0.9em;
@@ -598,19 +652,19 @@ main {
   transform: rotate(-90deg);
 }
 
-.archive-week-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 18px;
-  padding: 20px;
-  background: var(--bg-base);
+.archive-week-body {
   overflow: hidden;
   transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease;
-  max-height: 2000px;
+  max-height: 6000px;
   opacity: 1;
+  padding: 20px;
+  background: var(--bg-base);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.archive-week-cards.collapsed {
+.archive-week-body.collapsed {
   max-height: 0;
   opacity: 0;
   padding-top: 0;
@@ -618,9 +672,58 @@ main {
   pointer-events: none;
 }
 
+.archive-week-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 18px;
+}
+
 /* Archive cards are slightly more compact */
 .archive-week-cards .card {
   background: #111111;
+}
+
+/* ── CATEGORY FILTER BAR ── */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.section-header + .filter-bar {
+  margin-top: -16px;
+  margin-bottom: 20px;
+}
+
+.filter-bar.collapsed {
+  display: none;
+}
+
+.filter-pill {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--gray-500);
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 4px 14px;
+  text-transform: uppercase;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.filter-pill:hover {
+  color: var(--gray-100);
+  border-color: var(--gray-500);
+}
+
+.filter-pill--active {
+  color: var(--orange);
+  border-color: var(--orange);
+  background: var(--orange-glow);
 }
 
 /* ── FOOTER ── */
