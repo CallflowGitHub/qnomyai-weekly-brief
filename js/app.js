@@ -149,12 +149,12 @@
     header.className = 'archive-week-header';
     header.setAttribute('role', 'button');
     header.setAttribute('tabindex', '0');
-    header.setAttribute('aria-expanded', 'true');
+    header.setAttribute('aria-expanded', 'false');
     header.setAttribute('aria-controls', weekId);
     header.innerHTML = `<span class="archive-week-label">${escHtml(week.week)}</span><span class="archive-week-chevron">▼</span>`;
 
     const cardsGrid = document.createElement('div');
-    cardsGrid.className = 'archive-week-cards';
+    cardsGrid.className = 'archive-week-cards collapsed';
     cardsGrid.id = weekId;
 
     week.items.forEach(function (item) {
