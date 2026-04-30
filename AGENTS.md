@@ -10,14 +10,12 @@ Static vanilla JS/HTML/CSS site. No build step, no framework, no dependencies, n
 | [js/app.js](js/app.js) | **App logic** — renders all cards/sections into DOM, handles toggle interactions, date display. |
 | [css/styles.css](css/styles.css) | **Theming** — all colors as CSS variables (`:root`), responsive grid, dark theme. |
 | [index.html](index.html) | **Structure** — sticky header, hero, news grid, archive, footer. Script load order matters. |
-| [js/logo-dewhite.js](js/logo-dewhite.js) | **Logo utility** — canvas-based white-pixel removal at runtime for dark-background compatibility. |
 | [assets/](assets/) | **Images** — logo PNG files referenced in header and footer. |
 
 **Script load order** (must be preserved):
 ```html
 <script src="js/news.js"></script>   <!-- defines NEWS_ITEMS, ARCHIVE_WEEKS globals -->
 <script src="js/app.js"></script>    <!-- consumes those globals -->
-<script src="js/logo-dewhite.js"></script>
 ```
 
 ## Common Tasks
@@ -42,12 +40,11 @@ Static vanilla JS/HTML/CSS site. No build step, no framework, no dependencies, n
 - **HTML safety**: Always use `escHtml()` (defined in [js/app.js](js/app.js)) when inserting text into DOM. Never bypass this.
 - **Interactivity state**: `aria-expanded="true|false"` on buttons is the source of truth for toggle state — check/set this, not a separate variable.
 - **Collapse animation**: Add/remove `.collapsed` CSS class to show/hide sections. Do not use `display:none` or inline styles.
-- **Scope isolation**: Both [js/app.js](js/app.js) and [js/logo-dewhite.js](js/logo-dewhite.js) use IIFE `(function(){ ... })()` — maintain this pattern in new scripts.
+- **Scope isolation**: [js/app.js](js/app.js) uses IIFE `(function(){ ... })()` — maintain this pattern in new scripts.
 - **No globals**: Do not add properties to `window` or declare globals, except for the `NEWS_ITEMS`/`ARCHIVE_WEEKS` data contract between [news.js](news.js) and [app.js](app.js).
 
 ## Running Locally
 
-Requires an HTTP server (not `file://`) due to canvas CORS restrictions in [js/logo-dewhite.js](js/logo-dewhite.js):
 ```bash
 python -m http.server 8000
 # or
