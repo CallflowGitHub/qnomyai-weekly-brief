@@ -226,10 +226,6 @@ header {
   gap: 22px;
 }
 
-#panel-brief[dir="rtl"] .hero-inner {
-  flex-direction: row-reverse;
-}
-
 #panel-brief[dir="rtl"] .hero-text-block {
   text-align: right;
 }
@@ -253,6 +249,7 @@ header {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  flex: 1;
 }
 
 .hero-title {
@@ -537,7 +534,7 @@ main.grid-collapsed {
   display: flex;
   gap: 6px;
   flex-shrink: 0;
-  margin-bottom: 12px;
+  margin-top: 6px;
 }
 
 .lang-btn {
@@ -570,12 +567,12 @@ main.grid-collapsed {
   order: 2;
 }
 
-#panel-brief[dir="rtl"] .section-title::before {
-  order: 2;
+#panel-brief[dir="rtl"] .section-title[aria-expanded="false"]::before {
+  transform: rotate(90deg);
 }
 
-#panel-brief[dir="rtl"] .archive-week-label::before {
-  order: 2;
+#panel-brief[dir="rtl"] .archive-week-header[aria-expanded="false"] .archive-week-chevron {
+  transform: rotate(90deg);
 }
 .archive-section {
   border-top: 1px solid var(--border);

@@ -21,6 +21,10 @@
       <div class="header-meta">
         <span class="edition-badge">Edition</span>
         <span class="edition-date" id="edition-date"></span>
+        <div class="lang-toggle">
+          <button class="lang-btn lang-btn--active" type="button" data-lang="en">EN</button>
+          <button class="lang-btn" type="button" data-lang="he">עב</button>
+        </div>
       </div>
     </div>
   </header>
@@ -42,20 +46,16 @@
     <section class="hero-band">
       <div class="hero-inner">
         <div class="hero-text-block">
-          <h1 class="hero-title">Your AI World, Curated Weekly</h1>
-          <p class="hero-lead">Q-nomy AI's curated pulse on the world of Artificial Intelligence — handpicked, no noise.</p>
+          <h1 class="hero-title" data-en="Your AI World, Curated Weekly" data-he="עולם ה-AI שלך, נבחר שבועית">Your AI World, Curated Weekly</h1>
+          <p class="hero-lead" data-en="Q-nomy AI's curated pulse on the world of Artificial Intelligence — handpicked, no noise." data-he="הדופק המאצור של Q-nomy AI על עולם הבינה המלאכותית — נבחר בקפידה, ללא רעש.">Q-nomy AI's curated pulse on the world of Artificial Intelligence — handpicked, no noise.</p>
         </div>
       </div>
     </section>
 
     <!-- ── NEWS GRID ── -->
     <main>
-      <div class="lang-toggle">
-        <button class="lang-btn lang-btn--active" type="button" data-lang="en">EN</button>
-        <button class="lang-btn" type="button" data-lang="he">עב</button>
-      </div>
       <div class="section-header">
-        <h2 class="section-title" id="section-title-btn" role="button" tabindex="0" aria-expanded="true" aria-controls="news-grid">This Week's Highlights</h2>
+          <h2 class="section-title" id="section-title-btn" role="button" tabindex="0" aria-expanded="true" aria-controls="news-grid" data-en="This Week's Highlights" data-he="כותרות השבוע">This Week's Highlights</h2>
         <span class="article-count" id="article-count"></span>
       </div>
 
@@ -68,7 +68,7 @@
     <section class="archive-section">
       <div class="archive-inner">
         <div class="section-header">
-          <h2 class="section-title archive-toggle" id="archive-toggle-btn" role="button" tabindex="0" aria-expanded="true" aria-controls="archive-list">Previous Editions</h2>
+          <h2 class="section-title archive-toggle" id="archive-toggle-btn" role="button" tabindex="0" aria-expanded="true" aria-controls="archive-list" data-en="Previous Editions" data-he="מהדורות קודמות">Previous Editions</h2>
         </div>
         <div class="archive-list" id="archive-list">
           <!-- Weeks injected by app.js -->

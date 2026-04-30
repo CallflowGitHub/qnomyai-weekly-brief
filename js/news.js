@@ -7,7 +7,7 @@
 // Each entry represents a previous week. Add new objects to prepend older editions.
 const ARCHIVE_WEEKS = [
   {
-    week: "Week of Apr 21, 2026",
+    week: { en: "Week of Apr 21, 2026", he: "שבוע 21 באפריל 2026" },
     items: [
       {
         title: { en: "Model", he: "מודל" },

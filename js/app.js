@@ -42,8 +42,11 @@
   document.getElementById('footer-year').textContent = now.getFullYear();
 
   // Article count
-  document.getElementById('article-count').textContent =
-    NEWS_ITEMS.length + ' article' + (NEWS_ITEMS.length !== 1 ? 's' : '');
+  const articleCountEl = document.getElementById('article-count');
+  const n = NEWS_ITEMS.length;
+  articleCountEl.dataset.en = n + ' article' + (n !== 1 ? 's' : '');
+  articleCountEl.dataset.he = n + ' \u05de\u05d0\u05de\u05e8\u05d9\u05dd';
+  articleCountEl.textContent = articleCountEl.dataset.en;
 
   // Collapse toggle
   const titleBtn = document.getElementById('section-title-btn');
@@ -98,7 +101,6 @@
     card.innerHTML = `
       <div class="card-top">
         <span class="card-category">${escHtml(dCat)}</span>
-        <span class="card-date">${escHtml(item.date)}</span>
       </div>
       <h3 class="card-title">${escHtml(dTitle)}</h3>
       <div class="card-desc-wrap">
@@ -232,7 +234,11 @@
     header.setAttribute('aria-expanded', 'false');
     header.setAttribute('aria-controls', weekId);
     const itemCount = week.items.length;
-    header.innerHTML = `<span class="archive-week-meta"><span class="archive-week-label">${escHtml(week.week)}</span><span class="article-count">${itemCount} article${itemCount !== 1 ? 's' : ''}</span></span><span class="archive-week-chevron">▼</span>`;
+    const enCount = itemCount + ' article' + (itemCount !== 1 ? 's' : '');
+    const heCount = itemCount + ' \u05de\u05d0\u05de\u05e8\u05d9\u05dd';
+    const enWeek = typeof week.week === 'object' ? week.week.en : week.week;
+    const heWeek = typeof week.week === 'object' ? week.week.he : week.week;
+    header.innerHTML = `<span class="archive-week-meta"><span class="archive-week-label" data-en="${escHtml(enWeek)}" data-he="${escHtml(heWeek)}">${escHtml(currentLang === 'he' ? heWeek : enWeek)}</span><span class="article-count" data-en="${escHtml(enCount)}" data-he="${escHtml(heCount)}">${enCount}</span></span><span class="archive-week-chevron">▼</span>`;
 
     const cardsGrid = document.createElement('div');
     cardsGrid.className = 'archive-week-cards';
