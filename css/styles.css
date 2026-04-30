@@ -264,6 +264,12 @@ header {
   background-clip: text;
 }
 
+[dir="rtl"] .hero-title {
+  background: linear-gradient(270deg, #ffffff 0%, var(--orange-light) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
 .hero-lead {
   font-size: 1rem;
   color: var(--gray-300);
