@@ -7,7 +7,7 @@
 // Each entry represents a previous week. Add new objects to prepend older editions.
 const ARCHIVE_WEEKS = [
   {
-    week: { en: "Week of Apr 21, 2026", he: "שבוע 21 באפריל 2026" },
+    week: { en: "Week of Apr 26, 2026", he: "שבוע 26 באפריל 2026" },
     items: [
       {
         title: { en: "Model", he: "Model" },
@@ -155,63 +155,63 @@ const ARCHIVE_WEEKS = [
 
 const NEWS_ITEMS = [
   {
-    title: { en: "Test", he: "בדיקה" },
+    title: { en: "Model Comparison", he: "השוואת מודלים" },
     description: {
-      en: "This is a test news item for today's highlights. It serves as a placeholder to verify that the current week's section is rendering correctly.",
-      he: "זהו פריט חדשות לבדיקה עבור הדגשות השבוע. הוא משמש כמילוי כדי לוודא שקטע השבוע הנוכחי מוצג כראוי."
+      en: "Ever wondered which model is \"best\"? The answer depends on your specific needs. Industry benchmarks are commonly used to assess performance, but Hugging Face takes a different approach: it shows you two outputs for the same prompt without revealing which model generated each one. You choose the better result, and over time this feedback is aggregated to rank models. Check the new Model Comparison page to see the current standings.",
+      he: "תמיד תהיתם איזה מודל הוא \"הטוב ביותר\"? התשובה תלויה בצרכים הספציפיים שלכם. מדדי תעשייה נפוצים לבדיקת ביצועים, אך Hugging Face נוקטת גישה שונה: היא מציגה שתי תוצאות לאותו פרומפט מבלי לחשוף איזה מודל הפיק כל אחת. אתם בוחרים את התוצאה הטובה יותר, ועם הזמן המשוב הזה מצטבר לדירוג מודלים. בדקו את עמוד השוואת המודלים החדש לדירוגים הנוכחיים."
     },
-    category: { en: "Test", he: "בדיקה" },
-    date: "Apr 30, 2026",
+    category: { en: "Pro Tips", he: "טיפים" },
+    date: "May 3, 2026",
     source: "Q-nomy AI"
   },
   {
-    title: { en: "Test 2", he: "בדיקה 2" },
+    title: { en: "Reasoning", he: "Reasoning" },
     description: {
-      en: "A second test news item to confirm multiple cards in the Test category render and filter correctly.",
-      he: "פריט בדיקה שני לאישור שמספר כרטיסיות בקטגוריית הבדיקה מוצגות ומסוננות כראוי."
+      en: "The ability to process information step-by-step, connecting facts and logic to reach a conclusion rather than simply retrieving patterns. In practice, the model plans how to answer by breaking problems into multi-step tasks, processing them, and validating the result before responding. The level of reasoning can often be controlled to avoid unnecessary token usage.",
+      he: "היכולת לעבד מידע צעד אחר צעד, לחבר עובדות והיגיון כדי להגיע למסקנה במקום לאחזר דפוסים בלבד. בפועל, המודל מתכנן כיצד לענות על ידי פירוק בעיות למשימות מרובות שלבים, עיבודן ואימות התוצאה לפני המענה. ניתן לעיתים קרובות לשלוט ברמת ה-Reasoning כדי למנוע שימוש מיותר בטוקנים."
     },
-    category: { en: "Test", he: "בדיקה" },
-    date: "Apr 30, 2026",
+    category: { en: "AI Concepts", he: "מושגי AI" },
+    date: "May 3, 2026",
     source: "Q-nomy AI"
   },
   {
-    title: { en: "Try 1", he: "ניסוי 1" },
+    title: { en: "Agent Harness", he: "Agent Harness" },
     description: {
-      en: "First placeholder item in the Try category, used to verify multi-category filtering in the current week's highlights section.",
-      he: "פריט ניסוי ראשון בקטגוריית הניסוי, המשמש לאימות סינון רב-קטגוריות בקטע הדגשות השבוע."
+      en: "The runtime framework that manages how an AI agent operates — handling inputs, invoking tools, managing context, and orchestrating workflows. It acts as the \"execution layer\" around the model, ensuring the agent behaves reliably, follows rules, and integrates with external systems, as per what you define. In other words: this is essentially everything you supply the model with outside of your User Prompt.",
+      he: "מסגרת זמן הריצה שמנהלת כיצד סוכן AI פועל — טיפול בקלטים, הפעלת כלים, ניהול הקשר ותזמור תהליכי עבודה. הוא פועל כ\"שכבת הביצוע\" סביב המודל, ומבטיח שהסוכן מתנהג באופן אמין, עוקב אחר הכללים ומשתלב עם מערכות חיצוניות, בהתאם להגדרות שלכם. במילים אחרות: זה בעצם כל מה שאתם מספקים למודל מחוץ לפרומפט המשתמש שלכם."
     },
-    category: { en: "Try", he: "ניסוי" },
-    date: "Apr 30, 2026",
+    category: { en: "AI Concepts", he: "מושגי AI" },
+    date: "May 3, 2026",
     source: "Q-nomy AI"
   },
   {
-    title: { en: "Try 2", he: "ניסוי 2" },
+    title: { en: "Muse Spark", he: "Muse Spark" },
     description: {
-      en: "Second placeholder item in the Try category.",
-      he: "פריט ניסוי שני בקטגוריית הניסוי."
+      en: "A new model from Meta, positioned as a more capable, multimodal AI system with improved performance compared to earlier releases.",
+      he: "מודל חדש מ-Meta, הממוצב כמערכת AI רב-מודלית מתקדמת יותר עם ביצועים משופרים בהשוואה לגרסאות קודמות."
     },
-    category: { en: "Try", he: "ניסוי" },
-    date: "Apr 30, 2026",
-    source: "Q-nomy AI"
+    category: { en: "AI Models", he: "מודלי AI" },
+    date: "May 3, 2026",
+    source: "Meta"
   },
   {
-    title: { en: "Try 3", he: "ניסוי 3" },
+    title: { en: "NotebookLM in Gemini", he: "NotebookLM ב-Gemini" },
     description: {
-      en: "Third placeholder item in the Try category.",
-      he: "פריט ניסוי שלישי בקטגוריית הניסוי."
+      en: "Google has integrated NotebookLM directly into Gemini, effectively connecting both platforms.",
+      he: "Google שילבה את NotebookLM ישירות ב-Gemini, ומחברת למעשה את שתי הפלטפורמות."
     },
-    category: { en: "Try", he: "ניסוי" },
-    date: "Apr 30, 2026",
-    source: "Q-nomy AI"
+    category: { en: "Pro Tips", he: "טיפים" },
+    date: "May 3, 2026",
+    source: "Google"
   },
   {
-    title: { en: "Try 4", he: "ניסוי 4" },
+    title: { en: "File Generation in Gemini", he: "יצירת קבצים ב-Gemini" },
     description: {
-      en: "Fourth placeholder item in the Try category.",
-      he: "פריט ניסוי רביעי בקטגוריית הניסוי."
+      en: "Gemini can now generate multiple file types as output, including PPT, DOCX, MD, PDF, and more.",
+      he: "Gemini יכולה כעת ליצור סוגי קבצים מרובים כפלט, כולל PPT, DOCX, MD, PDF ועוד."
     },
-    category: { en: "Try", he: "ניסוי" },
-    date: "Apr 30, 2026",
-    source: "Q-nomy AI"
+    category: { en: "Pro Tips", he: "טיפים" },
+    date: "May 3, 2026",
+    source: "Google"
   }
 ];
