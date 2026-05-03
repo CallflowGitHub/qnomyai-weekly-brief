@@ -21,10 +21,6 @@
       <div class="header-meta">
         <span class="edition-badge">V1.0.0</span>
         <span class="edition-date" id="edition-date"></span>
-        <div class="lang-toggle">
-          <button class="lang-btn lang-btn--active" type="button" data-lang="en">EN</button>
-          <button class="lang-btn" type="button" data-lang="he">עב</button>
-        </div>
       </div>
     </div>
   </header>
@@ -41,6 +37,13 @@
 
   <!-- ── PANEL: WEEKLY BRIEF ── -->
   <div class="tab-panel" id="panel-brief" role="tabpanel" aria-labelledby="tab-brief">
+
+    <div class="lang-toggle-bar">
+      <div class="lang-toggle">
+        <button class="lang-btn lang-btn--active" type="button" data-lang="en">EN</button>
+        <button class="lang-btn" type="button" data-lang="he">עב</button>
+      </div>
+    </div>
 
     <!-- ── HERO BAND ── -->
     <section class="hero-band">
@@ -94,9 +97,371 @@
 
   <!-- ── PANEL: MODEL COMPARISON ── -->
   <div class="tab-panel tab-panel--hidden" id="panel-compare" role="tabpanel" aria-labelledby="tab-compare">
-    <div class="comingsoon-wrap">
-      <img src="assets/qnomyai_comingsoon.png" alt="Model Comparison — Coming Soon" class="comingsoon-img" />
+
+    <!-- HERO -->
+    <section class="lb-hero">
+      <div class="lb-hero-inner">
+        <div class="hero-text-block">
+          <h1 class="hero-title" data-en="Top 10 Models for Coding" data-he="10 המודלים המובילים לתכנות">Top 10 Models for Coding</h1>
+          <p class="hero-lead" data-en="Human preference rankings from the Arena.ai Code Leaderboard — 271,553 votes across 71 models." data-he="דירוגי העדפה אנושיים מ-Arena.ai Code Leaderboard — 271,553 קולות בין 71 מודלים.">Human preference rankings from the Arena.ai Code Leaderboard — 271,553 votes across 71 models.</p>
+        </div>
+        <div class="lb-hero-meta">
+          <span class="lb-meta-badge" data-en="Updated: May 1, 2026" data-he="עודכן: 1 במאי 2026">Updated: May 1, 2026</span>
+          <a class="lb-source-link" href="https://arena.ai/leaderboard/code" target="_blank" rel="noopener noreferrer">arena.ai/leaderboard/code ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABLE -->
+    <div class="lb-section">
+      <div class="lb-inner">
+        <div class="lb-table" role="table" aria-label="Top 10 coding models">
+
+          <!-- Header -->
+          <div class="lb-row lb-row--head" role="row">
+            <span class="lb-cell lb-cell--rank" role="columnheader">#</span>
+            <span class="lb-cell lb-cell--model" role="columnheader" data-en="Model" data-he="מודל">Model</span>
+            <span class="lb-cell lb-cell--elo" role="columnheader" data-en="Elo Score" data-he="ניקוד Elo">Elo Score</span>
+            <span class="lb-cell lb-cell--price" role="columnheader" data-en="Price (in / out per 1M tokens)" data-he="מחיר (כניסה / יציאה ל-1M אסימונים)">Price (in / out per 1M tokens)</span>
+            <span class="lb-cell lb-cell--ctx" role="columnheader" data-en="Context" data-he="חלון הקשר">Context</span>
+          </div>
+
+          <!-- Row 1 -->
+          <div class="lb-row lb-row--top3" role="row">
+            <span class="lb-cell lb-cell--rank">🥇</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">claude-opus-4-7-thinking</span>
+              <span class="lb-maker lb-maker--anthropic">Anthropic</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1571</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 100%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">$5 / $25</span>
+            <span class="lb-cell lb-cell--ctx">1M</span>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="lb-row lb-row--top3" role="row">
+            <span class="lb-cell lb-cell--rank">🥈</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">claude-opus-4-7</span>
+              <span class="lb-maker lb-maker--anthropic">Anthropic</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1561</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 89%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">$5 / $25</span>
+            <span class="lb-cell lb-cell--ctx">1M</span>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="lb-row lb-row--top3" role="row">
+            <span class="lb-cell lb-cell--rank">🥉</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">claude-opus-4-6-thinking</span>
+              <span class="lb-maker lb-maker--anthropic">Anthropic</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1548</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 75%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">$5 / $25</span>
+            <span class="lb-cell lb-cell--ctx">1M</span>
+          </div>
+
+          <!-- Row 4 -->
+          <div class="lb-row" role="row">
+            <span class="lb-cell lb-cell--rank">4</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">claude-opus-4-6</span>
+              <span class="lb-maker lb-maker--anthropic">Anthropic</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1543</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 69%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">$5 / $25</span>
+            <span class="lb-cell lb-cell--ctx">1M</span>
+          </div>
+
+          <!-- Row 5 -->
+          <div class="lb-row" role="row">
+            <span class="lb-cell lb-cell--rank">5</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">glm-5.1</span>
+              <span class="lb-maker lb-maker--zai">Z.ai</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1534</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 59%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">$1.40 / $4.40</span>
+            <span class="lb-cell lb-cell--ctx">202.8K</span>
+          </div>
+
+          <!-- Row 6 -->
+          <div class="lb-row" role="row">
+            <span class="lb-cell lb-cell--rank">6</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">claude-sonnet-4-6</span>
+              <span class="lb-maker lb-maker--anthropic">Anthropic</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1527</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 52%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">$3 / $15</span>
+            <span class="lb-cell lb-cell--ctx">1M</span>
+          </div>
+
+          <!-- Row 7 -->
+          <div class="lb-row" role="row">
+            <span class="lb-cell lb-cell--rank">7</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">kimi-k2.6</span>
+              <span class="lb-maker lb-maker--moonshot">Moonshot</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1526</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 51%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">$0.95 / $4</span>
+            <span class="lb-cell lb-cell--ctx">262.1K</span>
+          </div>
+
+          <!-- Row 8 -->
+          <div class="lb-row" role="row">
+            <span class="lb-cell lb-cell--rank">8</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">muse-spark</span>
+              <span class="lb-maker lb-maker--meta">Meta</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1509</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 32%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">N/A</span>
+            <span class="lb-cell lb-cell--ctx">N/A</span>
+          </div>
+
+          <!-- Row 9 -->
+          <div class="lb-row" role="row">
+            <span class="lb-cell lb-cell--rank">9</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">gpt-5.5-high (codex-harness)</span>
+              <span class="lb-maker lb-maker--openai">OpenAI</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1492</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 13%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">N/A</span>
+            <span class="lb-cell lb-cell--ctx">N/A</span>
+          </div>
+
+          <!-- Row 10 -->
+          <div class="lb-row" role="row">
+            <span class="lb-cell lb-cell--rank">10</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">claude-opus-4-5-thinking-32k</span>
+              <span class="lb-maker lb-maker--anthropic">Anthropic</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1491</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 12%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">$5 / $25</span>
+            <span class="lb-cell lb-cell--ctx">200K</span>
+          </div>
+
+        </div><!-- /lb-table -->
+      </div>
     </div>
+
+    <!-- TEXT SECTION HEADER -->
+    <section class="lb-sub-hero">
+      <div class="lb-hero-inner">
+        <div class="hero-text-block">
+          <h2 class="hero-title" data-en="Top 10 Models for Text" data-he="10 המודלים המובילים לטקסט">Top 10 Models for Text</h2>
+          <p class="hero-lead" data-en="Human preference rankings from the Arena.ai Text Leaderboard — 6,035,972 votes across 356 models." data-he="דירוגי העדפה אנושיים מ-Arena.ai Text Leaderboard — 6,035,972 קולות בין 356 מודלים.">Human preference rankings from the Arena.ai Text Leaderboard — 6,035,972 votes across 356 models.</p>
+        </div>
+        <div class="lb-hero-meta">
+          <span class="lb-meta-badge" data-en="Updated: May 1, 2026" data-he="עודכן: 1 במאי 2026">Updated: May 1, 2026</span>
+          <a class="lb-source-link" href="https://arena.ai/leaderboard/text" target="_blank" rel="noopener noreferrer">arena.ai/leaderboard/text ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEXT TABLE -->
+    <div class="lb-section">
+      <div class="lb-inner">
+        <div class="lb-table" role="table" aria-label="Top 10 text models">
+
+          <!-- Header -->
+          <div class="lb-row lb-row--head" role="row">
+            <span class="lb-cell lb-cell--rank" role="columnheader">#</span>
+            <span class="lb-cell lb-cell--model" role="columnheader" data-en="Model" data-he="מודל">Model</span>
+            <span class="lb-cell lb-cell--elo" role="columnheader" data-en="Elo Score" data-he="ניקוד Elo">Elo Score</span>
+            <span class="lb-cell lb-cell--price" role="columnheader" data-en="Price (in / out per 1M tokens)" data-he="מחיר (כניסה / יציאה ל-1M אסימונים)">Price (in / out per 1M tokens)</span>
+            <span class="lb-cell lb-cell--ctx" role="columnheader" data-en="Context" data-he="חלון הקשר">Context</span>
+          </div>
+
+          <!-- Row 1 -->
+          <div class="lb-row lb-row--top3" role="row">
+            <span class="lb-cell lb-cell--rank">🥇</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">claude-opus-4-7-thinking</span>
+              <span class="lb-maker lb-maker--anthropic">Anthropic</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1503</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 100%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">$5 / $25</span>
+            <span class="lb-cell lb-cell--ctx">1M</span>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="lb-row lb-row--top3" role="row">
+            <span class="lb-cell lb-cell--rank">🥈</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">claude-opus-4-6-thinking</span>
+              <span class="lb-maker lb-maker--anthropic">Anthropic</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1502</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 96%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">$5 / $25</span>
+            <span class="lb-cell lb-cell--ctx">1M</span>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="lb-row lb-row--top3" role="row">
+            <span class="lb-cell lb-cell--rank">🥉</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">claude-opus-4-6</span>
+              <span class="lb-maker lb-maker--anthropic">Anthropic</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1497</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 77%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">$5 / $25</span>
+            <span class="lb-cell lb-cell--ctx">1M</span>
+          </div>
+
+          <!-- Row 4 -->
+          <div class="lb-row" role="row">
+            <span class="lb-cell lb-cell--rank">4</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">gemini-3.1-pro-preview</span>
+              <span class="lb-maker lb-maker--google">Google</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1493</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 62%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">$2 / $12</span>
+            <span class="lb-cell lb-cell--ctx">1M</span>
+          </div>
+
+          <!-- Row 5 -->
+          <div class="lb-row" role="row">
+            <span class="lb-cell lb-cell--rank">5</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">claude-opus-4-7</span>
+              <span class="lb-maker lb-maker--anthropic">Anthropic</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1491</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 54%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">$5 / $25</span>
+            <span class="lb-cell lb-cell--ctx">1M</span>
+          </div>
+
+          <!-- Row 6 -->
+          <div class="lb-row" role="row">
+            <span class="lb-cell lb-cell--rank">6</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">muse-spark</span>
+              <span class="lb-maker lb-maker--meta">Meta</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1491</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 54%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">N/A</span>
+            <span class="lb-cell lb-cell--ctx">N/A</span>
+          </div>
+
+          <!-- Row 7 -->
+          <div class="lb-row" role="row">
+            <span class="lb-cell lb-cell--rank">7</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">gpt-5.5-high</span>
+              <span class="lb-maker lb-maker--openai">OpenAI</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1488</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 42%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">$5 / $30</span>
+            <span class="lb-cell lb-cell--ctx">1.1M</span>
+          </div>
+
+          <!-- Row 8 -->
+          <div class="lb-row" role="row">
+            <span class="lb-cell lb-cell--rank">8</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">gemini-3-pro</span>
+              <span class="lb-maker lb-maker--google">Google</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1486</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 35%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">$2 / $12</span>
+            <span class="lb-cell lb-cell--ctx">1M</span>
+          </div>
+
+          <!-- Row 9 -->
+          <div class="lb-row" role="row">
+            <span class="lb-cell lb-cell--rank">9</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">grok-4.20-beta1</span>
+              <span class="lb-maker lb-maker--xai">xAI</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1480</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 12%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">N/A</span>
+            <span class="lb-cell lb-cell--ctx">N/A</span>
+          </div>
+
+          <!-- Row 10 -->
+          <div class="lb-row" role="row">
+            <span class="lb-cell lb-cell--rank">10</span>
+            <span class="lb-cell lb-cell--model">
+              <span class="lb-model-name">grok-4.20-beta-0309-reasoning</span>
+              <span class="lb-maker lb-maker--xai">xAI</span>
+            </span>
+            <span class="lb-cell lb-cell--elo">
+              <span class="lb-elo-score">1477</span>
+              <div class="lb-elo-bar-wrap"><div class="lb-elo-bar" style="--bar-w: 4%"></div></div>
+            </span>
+            <span class="lb-cell lb-cell--price">$2 / $6</span>
+            <span class="lb-cell lb-cell--ctx">2M</span>
+          </div>
+
+        </div><!-- /lb-table -->
+      </div>
+    </div>
+
   </div><!-- /panel-compare -->
 
   <!-- ── FOOTER ── -->
